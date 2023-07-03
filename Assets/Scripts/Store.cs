@@ -1,14 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Store : MonoBehaviour
 {
-    private int storeCount = 1;
+    private int storeCount;
+    [SerializeField] private TMP_Text storeCountText;
 
+    private void Start()
+    {
+        storeCount = 1;
+        storeCountText.text = storeCount.ToString();
+    }
 
     public void BuyStoreOnClick()
     {
         storeCount++;
+        storeCountText.text = storeCount.ToString();
     }
 }
