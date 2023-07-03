@@ -1154,3 +1154,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storeCountText: {fileID: 893374874}
+  currentBalanceText: {fileID: 1748944080}
