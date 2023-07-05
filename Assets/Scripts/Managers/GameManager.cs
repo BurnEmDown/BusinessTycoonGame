@@ -57,7 +57,7 @@ namespace Managers
 
         public bool CanBuy(float amount)
         {
-            return amount <= currentBalance;
+            return currentBalance >= amount;
         }
     }
 }

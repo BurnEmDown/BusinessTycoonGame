@@ -23,7 +23,7 @@ namespace Store
 
         private void Start()
         {
-            model = new StoreModel(baseStoreCost, 1, baseStoreProfit, baseStoreIncomeTime);
+            model = new StoreModel(baseStoreCost, 0, baseStoreProfit, baseStoreIncomeTime);
             view = new StoreView(storeCountText, incomeSlider);
             view.UpdateStoreCountText(model.StoreCount);
         }
@@ -54,7 +54,7 @@ namespace Store
         public void BuyStoreOnClick()
         {
             Debug.Log(GameManager.Instance.CurrentBalance);
-            if (GameManager.Instance.CanBuy(model.BaseStoreCost)) return;
+            if (!GameManager.Instance.CanBuy(model.BaseStoreCost)) return;
             
             GameManager.Instance.RemoveBalance(model.BaseStoreCost);
 
@@ -64,7 +64,7 @@ namespace Store
 
         public void StoreOnClick()
         {
-            if (startTimer) return;
+            if (startTimer || !(model.StoreCount > 0)) return;
         
             startTimer = true;
             currentIncomeTime = 0f;

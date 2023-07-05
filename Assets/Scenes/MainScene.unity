@@ -316,6 +316,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storeCountText: {fileID: 2018223842}
   incomeSlider: {fileID: 918222334}
+  baseStoreCost: 3
+  baseStoreProfit: 2
+  baseStoreIncomeTime: 4
 --- !u!114 &104601506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3176,6 +3179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storeCountText: {fileID: 1694057402}
   incomeSlider: {fileID: 2142561893}
+  baseStoreCost: 5
+  baseStoreProfit: 5
+  baseStoreIncomeTime: 8
 --- !u!114 &1787015060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3760,6 +3766,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storeCountText: {fileID: 893374874}
   incomeSlider: {fileID: 1374450529}
+  baseStoreCost: 1.5
+  baseStoreProfit: 0.5
+  baseStoreIncomeTime: 2
 --- !u!1 &2116634628
 GameObject:
   m_ObjectHideFlags: 0
