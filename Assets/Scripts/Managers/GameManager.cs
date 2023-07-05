@@ -8,6 +8,7 @@ namespace Managers
     {
         public static GameManager Instance;
 
+        [SerializeField] private float startingBalance;
         private float currentBalance;
         
         [SerializeField] private TMP_Text currentBalanceText;
@@ -21,7 +22,6 @@ namespace Managers
                 Instance = this;
                 DontDestroyOnLoad(this);
             }
-                
             else
             {
                 Destroy(this);
@@ -30,7 +30,7 @@ namespace Managers
 
         private void Start()
         {
-            currentBalance = 2;
+            currentBalance = startingBalance;
             UpdateCurrentBalanceUI();
         }
 
@@ -48,6 +48,7 @@ namespace Managers
                 currentBalance = CurrentBalance - removeBalance;
 
             UpdateCurrentBalanceUI();
+            
         }
         
         private void UpdateCurrentBalanceUI()
