@@ -1,3 +1,4 @@
+using Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,13 +7,10 @@ namespace Store
 {
     public class StoreController : MonoBehaviour
     {
-        private float currentBalance;
-
         private StoreModel model;
         private StoreView view;
         
         [SerializeField] private TMP_Text storeCountText;
-        [SerializeField] private TMP_Text currentBalanceText;
         [SerializeField] private Slider incomeSlider;
 
         private float incomeTimer = 4f;
@@ -23,9 +21,7 @@ namespace Store
         {
             model = new StoreModel(1.5f, 1, 0.5f);
             view = new StoreView(storeCountText, incomeSlider);
-            currentBalance = 2;
             view.UpdateStoreCountText(model.StoreCount);
-            UpdateCurrentBalanceUI();
         }
 
         private void Update()
@@ -37,8 +33,7 @@ namespace Store
                 {
                     startTimer = false;
                     currentIncomeTime = 0f;
-                    currentBalance += model.BaseStoreProfit * model.StoreCount;
-                    UpdateCurrentBalanceUI();
+                    GameManager.Instance.AddBalance(model.BaseStoreProfit * model.StoreCount);
                 }
 
             
@@ -54,19 +49,13 @@ namespace Store
 
         public void BuyStoreOnClick()
         {
-            Debug.Log(currentBalance);
-            if (currentBalance < model.BaseStoreCost) return;
-
-            currentBalance -= model.BaseStoreCost;
-            UpdateCurrentBalanceUI();
+            Debug.Log(GameManager.Instance.CurrentBalance);
+            if (GameManager.Instance.CurrentBalance < model.BaseStoreCost) return;
+            
+            GameManager.Instance.RemoveBalance(model.BaseStoreCost);
 
             model.AddStore();
             view.UpdateStoreCountText(model.StoreCount);
-        }
-
-        private void UpdateCurrentBalanceUI()
-        {
-            currentBalanceText.text = "$" + $"{currentBalance:0.00}";
         }
 
         public void StoreOnClick()
