@@ -6,30 +6,31 @@
         private float baseStoreCost;
         private int storeCount;
         private float baseStoreProfit;
+        private float incomeTimer;
 
         public float BaseStoreCost
         {
             get => baseStoreCost;
-            set => baseStoreCost = value;
         }
 
         public int StoreCount
         {
             get => storeCount;
-            set => storeCount = value;
         }
 
         public float BaseStoreProfit
         {
             get => baseStoreProfit;
-            set => baseStoreProfit = value;
         }
 
-        public StoreModel(float baseCost, int count, float baseProfit)
+        public float IncomeTimer => incomeTimer;
+
+        public StoreModel(float baseCost, int count, float baseProfit, float incomeTime)
         {
             baseStoreCost = baseCost;
             storeCount = count;
             baseStoreProfit = baseProfit;
+            incomeTimer = incomeTime;
         }
 
         public void AddStore()

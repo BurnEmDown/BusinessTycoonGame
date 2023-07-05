@@ -13,13 +13,17 @@ namespace Store
         [SerializeField] private TMP_Text storeCountText;
         [SerializeField] private Slider incomeSlider;
 
-        private float incomeTimer = 4f;
+        [SerializeField] private float baseStoreCost;
+        [SerializeField] private float baseStoreProfit;
+        [SerializeField] private float baseStoreIncomeTime;
+        
+        
         private float currentIncomeTime = 0;
         private bool startTimer;
 
         private void Start()
         {
-            model = new StoreModel(1.5f, 1, 0.5f);
+            model = new StoreModel(baseStoreCost, 1, baseStoreProfit, baseStoreIncomeTime);
             view = new StoreView(storeCountText, incomeSlider);
             view.UpdateStoreCountText(model.StoreCount);
         }
@@ -29,7 +33,7 @@ namespace Store
             if (startTimer)
             {
                 currentIncomeTime += Time.deltaTime;
-                if (currentIncomeTime > incomeTimer)
+                if (currentIncomeTime > model.IncomeTimer)
                 {
                     startTimer = false;
                     currentIncomeTime = 0f;
@@ -44,7 +48,7 @@ namespace Store
 
         private void UpdateIncomeSlider()
         {
-            incomeSlider.value = currentIncomeTime / incomeTimer;
+            incomeSlider.value = currentIncomeTime / model.IncomeTimer;
         }
 
         public void BuyStoreOnClick()
