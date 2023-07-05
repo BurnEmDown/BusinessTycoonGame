@@ -38,12 +38,16 @@ namespace Managers
         {
             if(addBalance >= 0)
                 currentBalance = CurrentBalance + addBalance;
+
+            UpdateCurrentBalanceUI();
         }
 
         public void RemoveBalance(float removeBalance)
         {
             if (removeBalance >= 0)
                 currentBalance = CurrentBalance - removeBalance;
+
+            UpdateCurrentBalanceUI();
         }
         
         private void UpdateCurrentBalanceUI()
