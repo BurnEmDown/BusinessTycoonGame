@@ -10,6 +10,7 @@ namespace Store
         private StoreModel model;
         private StoreView view;
         
+        [SerializeField] private Button storeBuyButton;
         [SerializeField] private TMP_Text storeCountText;
         [SerializeField] private TMP_Text storePriceText;
         [SerializeField] private Slider incomeSlider;
@@ -25,7 +26,7 @@ namespace Store
         private void Start()
         {
             model = new StoreModel(baseStoreCost, 0, baseStoreProfit, baseStoreIncomeTime, storeMultiplier);
-            view = new StoreView(storeCountText, storePriceText, incomeSlider);
+            view = new StoreView(storeBuyButton, storeCountText, storePriceText, incomeSlider);
             view.UpdateStoreCountText(model.StoreCount);
             view.UpdateStoreCostText(model.BaseStoreCost);
         }
@@ -46,11 +47,24 @@ namespace Store
             }
         
             UpdateIncomeSlider();
+            CheckStoreBuy();
         }
 
         private void UpdateIncomeSlider()
         {
             view.UpdateIncomeSlider(currentIncomeTime / model.IncomeTimer);
+        }
+
+        public void CheckStoreBuy()
+        {
+            if (GameManager.Instance.CanBuy(model.NextStoreCost))
+            {
+                view.EnableBuyButton();
+            }
+            else
+            {
+                view.DisableBuyButton();
+            }
         }
 
         public void BuyStoreOnClick()
