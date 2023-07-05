@@ -276,7 +276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &104601504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -315,10 +315,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storeCountText: {fileID: 2018223842}
+  storePriceText: {fileID: 0}
   incomeSlider: {fileID: 918222334}
   baseStoreCost: 3
   baseStoreProfit: 2
   baseStoreIncomeTime: 4
+  storeMultiplier: 0
 --- !u!114 &104601506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,7 +846,7 @@ GameObject:
   - component: {fileID: 657057991}
   - component: {fileID: 657057990}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StorePriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -890,7 +892,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy Store
+  m_text: Buy 1.50$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -917,8 +919,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1697,7 +1699,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1813,8 +1815,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: -35}
-  m_SizeDelta: {x: 110, y: 30}
+  m_AnchoredPosition: {x: 20, y: -35}
+  m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1139935949
 MonoBehaviour:
@@ -2907,7 +2909,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3139,7 +3141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1787015058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3178,10 +3180,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storeCountText: {fileID: 1694057402}
+  storePriceText: {fileID: 0}
   incomeSlider: {fileID: 2142561893}
   baseStoreCost: 5
   baseStoreProfit: 5
   baseStoreIncomeTime: 8
+  storeMultiplier: 0
 --- !u!114 &1787015060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3765,10 +3769,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storeCountText: {fileID: 893374874}
+  storePriceText: {fileID: 657057990}
   incomeSlider: {fileID: 1374450529}
   baseStoreCost: 1.5
   baseStoreProfit: 0.5
   baseStoreIncomeTime: 2
+  storeMultiplier: 1.1
 --- !u!1 &2116634628
 GameObject:
   m_ObjectHideFlags: 0
