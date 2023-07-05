@@ -50,7 +50,7 @@ namespace Store
         public void BuyStoreOnClick()
         {
             Debug.Log(GameManager.Instance.CurrentBalance);
-            if (GameManager.Instance.CurrentBalance < model.BaseStoreCost) return;
+            if (GameManager.Instance.CanBuy(model.BaseStoreCost)) return;
             
             GameManager.Instance.RemoveBalance(model.BaseStoreCost);
 

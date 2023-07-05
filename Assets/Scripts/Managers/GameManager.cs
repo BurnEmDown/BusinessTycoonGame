@@ -54,5 +54,10 @@ namespace Managers
         {
             currentBalanceText.text = "$" + $"{CurrentBalance:0.00}";
         }
+
+        public bool CanBuy(float amount)
+        {
+            return amount <= currentBalance;
+        }
     }
 }
