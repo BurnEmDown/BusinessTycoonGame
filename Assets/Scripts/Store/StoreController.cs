@@ -35,12 +35,12 @@ namespace Store
                 currentIncomeTime += Time.deltaTime;
                 if (currentIncomeTime > model.IncomeTimer)
                 {
-                    startTimer = false;
+                    if(!model.ManagerUnlocked)
+                        startTimer = false;
                     currentIncomeTime = 0f;
                     GameManager.Instance.AddBalance(model.BaseStoreProfit * model.StoreCount);
                 }
 
-            
             }
         
             UpdateIncomeSlider();

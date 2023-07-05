@@ -7,6 +7,7 @@
         private int storeCount;
         private float baseStoreProfit;
         private float incomeTimer;
+        private bool managerUnlocked;
 
         public float BaseStoreCost
         {
@@ -25,6 +26,8 @@
 
         public float IncomeTimer => incomeTimer;
 
+        public bool ManagerUnlocked => managerUnlocked;
+
         public StoreModel(float baseCost, int count, float baseProfit, float incomeTime)
         {
             baseStoreCost = baseCost;
@@ -36,6 +39,11 @@
         public void AddStore()
         {
             storeCount++;
+        }
+
+        public void UnlockManager()
+        {
+            managerUnlocked = true;
         }
     }
 }
