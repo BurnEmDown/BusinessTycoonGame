@@ -7,6 +7,8 @@ namespace Store
 {
     public class StoreController : MonoBehaviour
     {
+        private GameManager gameManager => GameManager.Instance;
+        
         private StoreModel model;
         private StoreView view;
         
@@ -34,7 +36,6 @@ namespace Store
             view.UpdateStoreCountText(model.StoreCount);
             view.UpdateStoreCostText(model.BaseStoreCost);
             cg = transform.GetComponent<CanvasGroup>();
-            CheckStoreUnlock();
         }
 
         private void Update()
@@ -47,7 +48,7 @@ namespace Store
                     if(!model.ManagerUnlocked)
                         startTimer = false;
                     currentIncomeTime = 0f;
-                    GameManager.Instance.AddBalance(model.BaseStoreProfit * model.StoreCount);
+                    gameManager.AddBalance(model.BaseStoreProfit * model.StoreCount);
                 }
 
             }
@@ -65,7 +66,7 @@ namespace Store
 
         private void CheckStoreUnlock()
         {
-            if (!storeUnlocked && !GameManager.Instance.CanBuy(model.NextStoreCost))
+            if (!storeUnlocked && !gameManager.CanBuy(model.NextStoreCost))
             {
                 cg.alpha = 0.5f;
                 cg.interactable = false;
@@ -80,12 +81,12 @@ namespace Store
 
         private void CheckStoreBuy()
         {
-            if (!storeUnlocked && !GameManager.Instance.CanBuy(model.NextStoreCost))
+            if (!storeUnlocked && !gameManager.CanBuy(model.NextStoreCost))
             {
                 storeUnlocked = true;
             }
             
-            if (GameManager.Instance.CanBuy(model.NextStoreCost))
+            if (gameManager.CanBuy(model.NextStoreCost))
             {
                 view.EnableBuyButton();
             }
@@ -97,10 +98,10 @@ namespace Store
 
         public void BuyStoreOnClick()
         {
-            Debug.Log(GameManager.Instance.CurrentBalance);
-            if (!GameManager.Instance.CanBuy(model.NextStoreCost)) return;
+            Debug.Log(gameManager.CurrentBalance);
+            if (!gameManager.CanBuy(model.NextStoreCost)) return;
             
-            GameManager.Instance.RemoveBalance(model.NextStoreCost);
+            gameManager.RemoveBalance(model.NextStoreCost);
 
             model.AddStore();
             model.UpdateNextStoreCost();
