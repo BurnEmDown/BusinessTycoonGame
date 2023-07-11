@@ -965,6 +965,7 @@ GameObject:
   - component: {fileID: 2730573555126381864}
   - component: {fileID: 1148042939074745510}
   - component: {fileID: 6514477890553019667}
+  - component: {fileID: 4822543967131145339}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -1055,3 +1056,15 @@ MonoBehaviour:
   baseStoreProfit: 0.5
   baseStoreIncomeTime: 2
   storeMultiplier: 1.1
+--- !u!225 &4822543967131145339
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297997585927535187}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

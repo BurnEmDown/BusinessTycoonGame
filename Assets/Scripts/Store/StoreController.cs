@@ -19,9 +19,13 @@ namespace Store
         [SerializeField] private float baseStoreProfit;
         [SerializeField] private float baseStoreIncomeTime;
         [SerializeField] private float storeMultiplier;
+
+        private CanvasGroup cg;
         
         private float currentIncomeTime = 0;
         private bool startTimer;
+
+        private bool storeUnlocked;
 
         private void Start()
         {
@@ -29,6 +33,8 @@ namespace Store
             view = new StoreView(storeBuyButton, storeCountText, storePriceText, incomeSlider);
             view.UpdateStoreCountText(model.StoreCount);
             view.UpdateStoreCostText(model.BaseStoreCost);
+            cg = transform.GetComponent<CanvasGroup>();
+            CheckStoreUnlock();
         }
 
         private void Update()
@@ -47,7 +53,9 @@ namespace Store
             }
         
             UpdateIncomeSlider();
-            CheckStoreBuy();
+            CheckStoreUnlock();
+            if(storeUnlocked)
+                CheckStoreBuy();
         }
 
         private void UpdateIncomeSlider()
@@ -55,8 +63,28 @@ namespace Store
             view.UpdateIncomeSlider(currentIncomeTime / model.IncomeTimer);
         }
 
-        public void CheckStoreBuy()
+        private void CheckStoreUnlock()
         {
+            if (!storeUnlocked && !GameManager.Instance.CanBuy(model.NextStoreCost))
+            {
+                cg.alpha = 0.5f;
+                cg.interactable = false;
+            }
+            else
+            {
+                storeUnlocked = true;
+                cg.alpha = 1;
+                cg.interactable = true;
+            }
+        }
+
+        private void CheckStoreBuy()
+        {
+            if (!storeUnlocked && !GameManager.Instance.CanBuy(model.NextStoreCost))
+            {
+                storeUnlocked = true;
+            }
+            
             if (GameManager.Instance.CanBuy(model.NextStoreCost))
             {
                 view.EnableBuyButton();
