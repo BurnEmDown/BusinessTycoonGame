@@ -10,5 +10,10 @@ namespace Balance
         {
             this.balanceText = balanceText;
         }
+
+        public void UpdateBalanceUI(float balance)
+        {
+            balanceText.text = "$" + $"{balance:0.00}";
+        }
     }
 }

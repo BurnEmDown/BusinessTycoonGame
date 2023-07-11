@@ -8,17 +8,15 @@
         {
             get => balance;
         }
-        
+
         public void AddBalance(float addBalance)
         {
-            if(addBalance >= 0)
-                balance += addBalance;
+            balance += addBalance;
         }
 
         public void RemoveBalance(float removeBalance)
         {
-            if (removeBalance >= 0)
-                balance -= removeBalance;
+            balance -= removeBalance;
         }
     }
 }

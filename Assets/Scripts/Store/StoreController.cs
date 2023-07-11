@@ -1,3 +1,4 @@
+using Balance;
 using Managers;
 using TMPro;
 using UnityEngine;
@@ -8,7 +9,8 @@ namespace Store
     public class StoreController : MonoBehaviour
     {
         private GameManager gameManager => GameManager.Instance;
-        
+        private BalanceController balanceController => BalanceController.Instance;
+
         private StoreModel model;
         private StoreView view;
         
@@ -48,7 +50,7 @@ namespace Store
                     if(!model.ManagerUnlocked)
                         startTimer = false;
                     currentIncomeTime = 0f;
-                    gameManager.AddBalance(model.BaseStoreProfit * model.StoreCount);
+                    balanceController.AddBalance(model.BaseStoreProfit * model.StoreCount);
                 }
 
             }
@@ -66,7 +68,7 @@ namespace Store
 
         private void CheckStoreUnlock()
         {
-            if (!storeUnlocked && !gameManager.CanBuy(model.NextStoreCost))
+            if (!storeUnlocked && !balanceController.CanBuy(model.NextStoreCost))
             {
                 cg.alpha = 0.5f;
                 cg.interactable = false;
@@ -81,12 +83,12 @@ namespace Store
 
         private void CheckStoreBuy()
         {
-            if (!storeUnlocked && !gameManager.CanBuy(model.NextStoreCost))
+            if (!storeUnlocked && !balanceController.CanBuy(model.NextStoreCost))
             {
                 storeUnlocked = true;
             }
             
-            if (gameManager.CanBuy(model.NextStoreCost))
+            if (balanceController.CanBuy(model.NextStoreCost))
             {
                 view.EnableBuyButton();
             }
@@ -98,10 +100,9 @@ namespace Store
 
         public void BuyStoreOnClick()
         {
-            Debug.Log(gameManager.CurrentBalance);
-            if (!gameManager.CanBuy(model.NextStoreCost)) return;
+            if (!balanceController.CanBuy(model.NextStoreCost)) return;
             
-            gameManager.RemoveBalance(model.NextStoreCost);
+            balanceController.RemoveBalance(model.NextStoreCost);
 
             model.AddStore();
             model.UpdateNextStoreCost();

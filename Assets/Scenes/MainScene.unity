@@ -1194,6 +1194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1961061742}
   - component: {fileID: 1961061743}
+  - component: {fileID: 1961061744}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1228,8 +1229,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15dfe3125577484d84344952f0128f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingBalance: 2
+--- !u!114 &1961061744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961061741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99883afcb69e4c22aef2fc06b481949a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   currentBalanceText: {fileID: 1748944080}
+  startingBalance: 2
 --- !u!224 &2018728894 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8120786686786676660, guid: e03fff4493ef67a47a229de5a25be0fd, type: 3}
