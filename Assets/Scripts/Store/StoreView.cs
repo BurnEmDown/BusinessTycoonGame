@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Store
@@ -41,6 +42,18 @@ namespace Store
         public void DisableBuyButton()
         {
             storeBuyButton.interactable = false;
+        }
+
+        public void LockStore(CanvasGroup cg)
+        {
+            cg.alpha = 0.5f;
+            cg.interactable = false;
+        }
+
+        public void UnockStore(CanvasGroup cg)
+        {
+            cg.alpha = 1;
+            cg.interactable = true;
         }
     }
 }

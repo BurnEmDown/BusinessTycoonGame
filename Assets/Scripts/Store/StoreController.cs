@@ -1,3 +1,4 @@
+using System;
 using Balance;
 using Managers;
 using TMPro;
@@ -29,8 +30,6 @@ namespace Store
         private float currentIncomeTime = 0;
         private bool startTimer;
 
-        private bool storeUnlocked;
-
         private void Start()
         {
             model = new StoreModel(baseStoreCost, 0, baseStoreProfit, baseStoreIncomeTime, storeMultiplier);
@@ -57,7 +56,7 @@ namespace Store
         
             UpdateIncomeSlider();
             CheckStoreUnlock();
-            if(storeUnlocked)
+            if(model.StoreUnlocked)
                 CheckStoreBuy();
         }
 
@@ -68,24 +67,22 @@ namespace Store
 
         private void CheckStoreUnlock()
         {
-            if (!storeUnlocked && !balanceController.CanBuy(model.NextStoreCost))
+            if (!model.StoreUnlocked && !balanceController.CanBuy(model.NextStoreCost))
             {
-                cg.alpha = 0.5f;
-                cg.interactable = false;
+                view.LockStore(cg);
             }
             else
             {
-                storeUnlocked = true;
-                cg.alpha = 1;
-                cg.interactable = true;
+                view.UnockStore(cg);
+                model.UnlockStore();
             }
         }
 
         private void CheckStoreBuy()
         {
-            if (!storeUnlocked && !balanceController.CanBuy(model.NextStoreCost))
+            if (!model.StoreUnlocked && !balanceController.CanBuy(model.NextStoreCost))
             {
-                storeUnlocked = true;
+                model.UnlockStore();
             }
             
             if (balanceController.CanBuy(model.NextStoreCost))

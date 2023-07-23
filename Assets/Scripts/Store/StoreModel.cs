@@ -13,22 +13,59 @@ namespace Store
         private bool managerUnlocked;
         private float nextStoreCost;
         private float storeMultiplier;
+        private bool storeUnlocked;
 
-        public float BaseStoreCost => baseStoreCost;
-        public int StoreCount => storeCount;
-        public float BaseStoreProfit => baseStoreProfit;
-        public float IncomeTimer => incomeTimer;
+        public float BaseStoreCost
+        {
+            get => baseStoreCost;
+            private set => baseStoreCost = value;
+        }
+
+        public int StoreCount
+        {
+            get => storeCount;
+            private set => storeCount = value;
+        }
+
+        public float BaseStoreProfit
+        {
+            get => baseStoreProfit;
+            private set => baseStoreProfit = value;
+        }
+
+        public float IncomeTimer
+        {
+            get => incomeTimer;
+            private set => incomeTimer = value;
+        }
+
         public bool ManagerUnlocked => managerUnlocked;
-        public float NextStoreCost => nextStoreCost;
+        public float NextStoreCost
+        {
+            get => nextStoreCost;
+            private set => nextStoreCost = value;
+        }
+
+        public bool StoreUnlocked
+        {
+            get => storeUnlocked;
+            private set => storeUnlocked = value;
+        }
+
+        public float StoreMultiplier
+        {
+            get => storeMultiplier;
+            private set => storeMultiplier = value;
+        }
 
         public StoreModel(float baseCost, int count, float baseProfit, float incomeTime, float multiplier)
         {
-            baseStoreCost = baseCost;
-            nextStoreCost = baseCost;
-            storeCount = count;
-            baseStoreProfit = baseProfit;
-            incomeTimer = incomeTime;
-            storeMultiplier = multiplier;
+            BaseStoreCost = baseCost;
+            NextStoreCost = baseCost;
+            StoreCount = count;
+            BaseStoreProfit = baseProfit;
+            IncomeTimer = incomeTime;
+            StoreMultiplier = multiplier;
         }
 
         public void AddStore()
@@ -43,8 +80,13 @@ namespace Store
 
         public void UpdateNextStoreCost()
         {
-            nextStoreCost = (BaseStoreCost * Mathf.Pow(storeMultiplier, storeCount));
+            nextStoreCost = (BaseStoreCost * Mathf.Pow(StoreMultiplier, storeCount));
             nextStoreCost = (float)Math.Round(nextStoreCost, 2);
+        }
+        
+        public void UnlockStore()
+        {
+            StoreUnlocked = true;
         }
     }
 }
