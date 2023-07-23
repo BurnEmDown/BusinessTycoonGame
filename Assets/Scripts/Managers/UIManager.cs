@@ -1,5 +1,3 @@
-using System;
-using Balance;
 using UnityEngine;
 
 namespace Managers
@@ -8,8 +6,6 @@ namespace Managers
     {
         public static UIManager Instance;
         private GameManager gameManager => GameManager.Instance;
-
-        [SerializeField] private BalanceController balanceController;
 
         private void Awake()
         {
