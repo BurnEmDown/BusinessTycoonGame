@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 6514477890553019667}
   - component: {fileID: 4822543967131145339}
   m_Layer: 5
-  m_Name: Shop
+  m_Name: StorePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
