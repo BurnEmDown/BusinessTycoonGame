@@ -9,13 +9,15 @@ namespace Store
         private Button storeBuyButton;
         private TMP_Text storeCountText;
         private TMP_Text storeCostText;
+        private TMP_Text storeNameText;
         private Slider storeIncomeSlider;
 
-        public StoreView(Button buyButton, TMP_Text countText, TMP_Text priceText, Slider incomeSlider)
+        public StoreView(Button buyButton, TMP_Text countText, TMP_Text priceText, TMP_Text nameText, Slider incomeSlider)
         {
             storeBuyButton = buyButton;
             storeCountText = countText;
             storeCostText = priceText;
+            storeNameText = nameText;
             storeIncomeSlider = incomeSlider;
         }
 
@@ -27,6 +29,11 @@ namespace Store
         public void UpdateStoreCostText(float amount)
         {
             storeCostText.text = "Buy $" + $"{amount:0.00}";
+        }
+
+        public void UpdateStoreNameText(string name)
+        {
+            storeNameText.text = name;
         }
         
         public void UpdateIncomeSlider(float value)

@@ -14,6 +14,7 @@ namespace Store
         private float nextStoreCost;
         private float storeMultiplier;
         private bool storeUnlocked;
+        private string storeName;
 
         public float BaseStoreCost
         {
@@ -58,7 +59,13 @@ namespace Store
             private set => storeMultiplier = value;
         }
 
-        public StoreModel(float baseCost, int count, float baseProfit, float incomeTime, float multiplier)
+        public string StoreName
+        {
+            get => storeName;
+            private set => storeName = value;
+        }
+
+        public StoreModel(float baseCost, int count, float baseProfit, float incomeTime, float multiplier, string name)
         {
             BaseStoreCost = baseCost;
             NextStoreCost = baseCost;
@@ -66,6 +73,7 @@ namespace Store
             BaseStoreProfit = baseProfit;
             IncomeTimer = incomeTime;
             StoreMultiplier = multiplier;
+            StoreName = name;
         }
 
         public void AddStore()

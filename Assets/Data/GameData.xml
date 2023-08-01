@@ -1,14 +1,14 @@
 <gamedata>
 	<store>
-		<name>Hotel</name>
+		<StoreName>Hotel</StoreName>
 		<BaseStoreCost>1.5</BaseStoreCost>
 		<BaseStoreProfit>0.5</BaseStoreProfit>
-		<StoreTimer>5</StoreTimer>
+		<IncomeTimer>5</IncomeTimer>
 	</store>
 	<store>
-		<name>Super Market</name>
+		<StoreName>Super Market</StoreName>
 		<BaseStoreCost>5</BaseStoreCost>
 		<BaseStoreProfit>2</BaseStoreProfit>
-		<StoreTimer>12</StoreTimer>
+		<IncomeTimer>12</IncomeTimer>
 	</store>
 </gamedata>

@@ -1051,11 +1051,13 @@ MonoBehaviour:
   storeBuyButton: {fileID: 8058116355713533945}
   storeCountText: {fileID: 4195280934289388311}
   storePriceText: {fileID: 7238594745859038256}
+  storeNameText: {fileID: 6460386463884692096}
   incomeSlider: {fileID: 7832517244861611357}
   baseStoreCost: 1.5
   baseStoreProfit: 0.5
   baseStoreIncomeTime: 2
   storeMultiplier: 1.1
+  storeName: 
 --- !u!225 &4822543967131145339
 CanvasGroup:
   m_ObjectHideFlags: 0

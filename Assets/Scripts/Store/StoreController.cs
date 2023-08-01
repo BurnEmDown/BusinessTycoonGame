@@ -14,33 +14,35 @@ namespace Store
 
         private StoreModel model;
         private StoreView view;
-        
+
         [SerializeField] private Button storeBuyButton;
         [SerializeField] private TMP_Text storeCountText;
         [SerializeField] private TMP_Text storePriceText;
+        [SerializeField] private TMP_Text storeNameText;
         [SerializeField] private Slider incomeSlider;
 
         [SerializeField] private float baseStoreCost;
         [SerializeField] private float baseStoreProfit;
         [SerializeField] private float baseStoreIncomeTime;
         [SerializeField] private float storeMultiplier;
+        [SerializeField] private string storeName;
 
         private CanvasGroup cg;
         
         private float currentIncomeTime = 0;
         private bool startTimer;
 
+        private bool storeInitialized;
+
         private void Start()
         {
-            model = new StoreModel(baseStoreCost, 0, baseStoreProfit, baseStoreIncomeTime, storeMultiplier);
-            view = new StoreView(storeBuyButton, storeCountText, storePriceText, incomeSlider);
-            view.UpdateStoreCountText(model.StoreCount);
-            view.UpdateStoreCostText(model.BaseStoreCost);
             cg = transform.GetComponent<CanvasGroup>();
         }
 
         private void Update()
         {
+            if (!storeInitialized) return;
+            
             if (startTimer)
             {
                 currentIncomeTime += Time.deltaTime;
@@ -58,6 +60,17 @@ namespace Store
             CheckStoreUnlock();
             if(model.StoreUnlocked)
                 CheckStoreBuy();
+        }
+
+        public void Init(StoreData data)
+        {
+            model = new StoreModel(data.baseStoreCost, data.storeCount, data.baseStoreProfit, data.incomeTime, data.storeMultiplier, data.storeName);
+            view = new StoreView(storeBuyButton, storeCountText, storePriceText, storeNameText, incomeSlider);
+            view.UpdateStoreCountText(model.StoreCount);
+            view.UpdateStoreCostText(model.BaseStoreCost);
+            view.UpdateStoreNameText(model.StoreName);
+            
+            storeInitialized = true;
         }
 
         private void UpdateIncomeSlider()
