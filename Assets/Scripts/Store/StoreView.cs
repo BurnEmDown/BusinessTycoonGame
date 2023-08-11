@@ -11,14 +11,24 @@ namespace Store
         private TMP_Text storeCostText;
         private TMP_Text storeNameText;
         private Slider storeIncomeSlider;
+        private Image storeImage;
 
-        public StoreView(Button buyButton, TMP_Text countText, TMP_Text priceText, TMP_Text nameText, Slider incomeSlider)
+        public StoreView(Button buyButton, TMP_Text countText, TMP_Text priceText, TMP_Text nameText, Slider incomeSlider, Image imageHolder, Sprite image)
         {
             storeBuyButton = buyButton;
             storeCountText = countText;
             storeCostText = priceText;
             storeNameText = nameText;
             storeIncomeSlider = incomeSlider;
+            storeImage = imageHolder;
+            storeImage.sprite = image;
+        }
+
+        public void UpdateStoreData(int count, float cost, string name)
+        {
+            UpdateStoreCountText(count);
+            UpdateStoreCostText(cost);
+            UpdateStoreNameText(name);
         }
 
         public void UpdateStoreCountText(int count)

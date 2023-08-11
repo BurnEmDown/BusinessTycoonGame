@@ -1053,6 +1053,7 @@ MonoBehaviour:
   storePriceText: {fileID: 7238594745859038256}
   storeNameText: {fileID: 6460386463884692096}
   incomeSlider: {fileID: 7832517244861611357}
+  storeImage: {fileID: 6152568685646285671}
   baseStoreCost: 1.5
   baseStoreProfit: 0.5
   baseStoreIncomeTime: 2

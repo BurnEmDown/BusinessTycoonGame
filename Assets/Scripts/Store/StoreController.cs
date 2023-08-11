@@ -20,6 +20,7 @@ namespace Store
         [SerializeField] private TMP_Text storePriceText;
         [SerializeField] private TMP_Text storeNameText;
         [SerializeField] private Slider incomeSlider;
+        [SerializeField] private Image storeImage;
 
         [SerializeField] private float baseStoreCost;
         [SerializeField] private float baseStoreProfit;
@@ -65,10 +66,8 @@ namespace Store
         public void Init(StoreData data)
         {
             model = new StoreModel(data.baseStoreCost, data.storeCount, data.baseStoreProfit, data.incomeTime, data.storeMultiplier, data.storeName);
-            view = new StoreView(storeBuyButton, storeCountText, storePriceText, storeNameText, incomeSlider);
-            view.UpdateStoreCountText(model.StoreCount);
-            view.UpdateStoreCostText(model.BaseStoreCost);
-            view.UpdateStoreNameText(model.StoreName);
+            view = new StoreView(storeBuyButton, storeCountText, storePriceText, storeNameText, incomeSlider, storeImage, data.image);
+            view.UpdateStoreData(data.storeCount, data.baseStoreCost, data.storeName);
             
             storeInitialized = true;
         }

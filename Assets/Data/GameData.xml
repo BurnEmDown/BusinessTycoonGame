@@ -4,11 +4,47 @@
 		<BaseStoreCost>1.5</BaseStoreCost>
 		<BaseStoreProfit>0.5</BaseStoreProfit>
 		<IncomeTimer>5</IncomeTimer>
+		<StoreCount>1</StoreCount>
+		<Image>hotel</Image>
 	</store>
 	<store>
 		<StoreName>Super Market</StoreName>
 		<BaseStoreCost>5</BaseStoreCost>
 		<BaseStoreProfit>2</BaseStoreProfit>
 		<IncomeTimer>12</IncomeTimer>
+		<StoreCount>0</StoreCount>
+		<Image>super_market</Image>
+	</store>
+	<store>
+		<StoreName>Fast Food</StoreName>
+		<BaseStoreCost>10</BaseStoreCost>
+		<BaseStoreProfit>4</BaseStoreProfit>
+		<IncomeTimer>8</IncomeTimer>
+		<StoreCount>0</StoreCount>
+		<Image>french_fries</Image>
+	</store>
+	<store>
+		<StoreName>General Store</StoreName>
+		<BaseStoreCost>20</BaseStoreCost>
+		<BaseStoreProfit>10</BaseStoreProfit>
+		<IncomeTimer>15</IncomeTimer>
+		<StoreCount>0</StoreCount>
+		<Image>shop</Image>
+	</store>
+	<store>
+		<StoreName>Library</StoreName>
+		<BaseStoreCost>75</BaseStoreCost>
+		<BaseStoreProfit>25</BaseStoreProfit>
+		<IncomeTimer>40</IncomeTimer>
+		<StoreCount>0</StoreCount>
+		<Image>bookcase</Image>
+	</store>
+	<store>
+		<StoreName>Bank</StoreName>
+		<BaseStoreCost>150</BaseStoreCost>
+		<BaseStoreProfit>50</BaseStoreProfit>
+		<IncomeTimer>60</IncomeTimer>
+		<StoreCount>0</StoreCount>
+		<Image>Bank</Image>
 	</store>
 </gamedata>

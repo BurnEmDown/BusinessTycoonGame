@@ -27,7 +27,7 @@ public class LoadGameData : MonoBehaviour
             GameObject newStore = Instantiate(storePrefab);
 
             StoreController storeObj = newStore.GetComponent<StoreController>();
-            StoreData data = new StoreData();
+            StoreData data = new();
             
             XmlNodeList storeNodes = storeInfo.ChildNodes;
             foreach (XmlNode storeNode in storeNodes)
@@ -48,11 +48,15 @@ public class LoadGameData : MonoBehaviour
                     case "StoreCount":
                         data.storeCount = int.Parse(storeNode.InnerText);
                         break;
-                    case "IncomeTime":
+                    case "IncomeTimer":
                         data.incomeTime = float.Parse(storeNode.InnerText);
                         break;
                     case "StoreMultiplier":
                         data.storeMultiplier = float.Parse(storeNode.InnerText);
+                        break;
+                    case "Image":
+                        Sprite newSprite = Resources.Load<Sprite>(storeNode.InnerText);
+                        data.image = newSprite;
                         break;
                 }
             }

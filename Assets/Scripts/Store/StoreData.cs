@@ -1,4 +1,6 @@
-﻿namespace Store
+﻿using UnityEngine;
+
+namespace Store
 {
     public struct StoreData
     {
@@ -8,5 +10,6 @@
         public float incomeTime;
         public float storeMultiplier;
         public string storeName;
+        public Sprite image;
     }
 }
