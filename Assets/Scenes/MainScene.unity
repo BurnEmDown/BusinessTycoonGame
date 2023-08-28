@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBalanceText: {fileID: 1748944080}
-  startingBalance: 2
+  startingBalance: 0
 --- !u!114 &1961061745
 MonoBehaviour:
   m_ObjectHideFlags: 0

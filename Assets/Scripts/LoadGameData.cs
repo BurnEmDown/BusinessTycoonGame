@@ -1,4 +1,5 @@
 using System.Xml;
+using Balance;
 using Store;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class LoadGameData : MonoBehaviour
         
         xmlDocument.LoadXml(GameData.text);
 
+        SetStartingBalance(xmlDocument);
+        
         XmlNodeList StoreList = xmlDocument.GetElementsByTagName("store");
 
         foreach (XmlNode storeInfo in StoreList)
@@ -64,5 +67,12 @@ public class LoadGameData : MonoBehaviour
             storeObj.transform.SetParent(storePanel.transform);
             storeObj.Init(data);
         }
+    }
+
+    private static void SetStartingBalance(XmlDocument xmlDocument)
+    {
+        XmlNodeList startingBalanceNode = xmlDocument.GetElementsByTagName("StartingBalance");
+        float startingBalance = float.Parse(startingBalanceNode[0].InnerText);
+        BalanceController.Instance.AddBalance(startingBalance);
     }
 }
