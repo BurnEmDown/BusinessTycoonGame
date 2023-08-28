@@ -1,5 +1,6 @@
 using System.Xml;
 using Balance;
+using Managers;
 using Store;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ public class LoadGameData : MonoBehaviour
         xmlDocument.LoadXml(GameData.text);
 
         SetStartingBalance(xmlDocument);
+        SetCompanyName(xmlDocument);
         
         XmlNodeList StoreList = xmlDocument.GetElementsByTagName("store");
 
@@ -67,6 +69,13 @@ public class LoadGameData : MonoBehaviour
             storeObj.transform.SetParent(storePanel.transform);
             storeObj.Init(data);
         }
+    }
+
+    private void SetCompanyName(XmlDocument xmlDocument)
+    {
+        XmlNodeList companyNameNode = xmlDocument.GetElementsByTagName("CompanyName");
+        string companyName = companyNameNode[0].InnerText;
+        GameManager.Instance.UpdateCompanyName(companyName);
     }
 
     private static void SetStartingBalance(XmlDocument xmlDocument)
