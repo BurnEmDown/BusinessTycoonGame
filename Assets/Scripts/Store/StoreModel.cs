@@ -11,6 +11,7 @@ namespace Store
         private float baseStoreProfit;
         private float incomeTimer;
         private bool managerUnlocked;
+        private float managerCost;
         private float nextStoreCost;
         private float storeMultiplier;
         private bool storeUnlocked;
@@ -41,6 +42,11 @@ namespace Store
         }
 
         public bool ManagerUnlocked => managerUnlocked;
+        public float ManagerCost
+        {
+            get => managerCost;
+            private set => managerCost = value;
+        }
         public float NextStoreCost
         {
             get => nextStoreCost;

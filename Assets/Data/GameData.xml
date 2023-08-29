@@ -8,6 +8,7 @@
 		<IncomeTimer>5</IncomeTimer>
 		<StoreCount>1</StoreCount>
 		<Image>hotel</Image>
+		<ManagerCost>50</ManagerCost>
 	</store>
 	<store>
 		<StoreName>Super Market</StoreName>
@@ -16,6 +17,7 @@
 		<IncomeTimer>12</IncomeTimer>
 		<StoreCount>0</StoreCount>
 		<Image>super_market</Image>
+		<ManagerCost>75</ManagerCost>
 	</store>
 	<store>
 		<StoreName>Fast Food</StoreName>
@@ -24,6 +26,7 @@
 		<IncomeTimer>8</IncomeTimer>
 		<StoreCount>0</StoreCount>
 		<Image>french_fries</Image>
+		<ManagerCost>100</ManagerCost>
 	</store>
 	<store>
 		<StoreName>General Store</StoreName>
@@ -32,6 +35,7 @@
 		<IncomeTimer>15</IncomeTimer>
 		<StoreCount>0</StoreCount>
 		<Image>shop</Image>
+		<ManagerCost>125</ManagerCost>
 	</store>
 	<store>
 		<StoreName>Library</StoreName>
@@ -40,6 +44,7 @@
 		<IncomeTimer>40</IncomeTimer>
 		<StoreCount>0</StoreCount>
 		<Image>bookcase</Image>
+		<ManagerCost>150</ManagerCost>
 	</store>
 	<store>
 		<StoreName>Bank</StoreName>
@@ -48,5 +53,6 @@
 		<IncomeTimer>60</IncomeTimer>
 		<StoreCount>0</StoreCount>
 		<Image>Bank</Image>
+		<ManagerCost>200</ManagerCost>
 	</store>
 </gamedata>

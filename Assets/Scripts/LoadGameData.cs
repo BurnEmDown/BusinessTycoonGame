@@ -2,12 +2,17 @@ using System.Xml;
 using Balance;
 using Managers;
 using Store;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadGameData : MonoBehaviour
 {
     [SerializeField] private GameObject storePrefab;
     [SerializeField] private GameObject storePanel;
+    
+    [SerializeField] private GameObject managerPrefab;
+    [SerializeField] private GameObject managerPanel;
     
     public TextAsset GameData;
 
@@ -31,6 +36,11 @@ public class LoadGameData : MonoBehaviour
         {
             LoadStore(storeInfo);
         }
+    }
+
+    private void LoadManagerNodes(XmlNode storeInfo)
+    {
+        
     }
 
     private void LoadStore(XmlNode storeInfo)
@@ -76,10 +86,28 @@ public class LoadGameData : MonoBehaviour
                     Sprite newSprite = Resources.Load<Sprite>(storeNode.InnerText);
                     data.image = newSprite;
                     break;
+                case "ManagerCost":
+                    CreateManager(data.storeName, storeNode.InnerText);
+                    break;
             }
         }
         
         return data;
+    }
+
+    private void CreateManager(string storeName, string cost)
+    {
+        GameObject newManager = Instantiate(managerPrefab);
+        newManager.transform.SetParent(managerPanel.transform);
+        
+        // this is a bad way to do this and some errors might occur when the store name sent is empty
+        TMP_Text managerText = newManager.transform.Find("ManagerNameText").GetComponent<TMP_Text>();
+        managerText.text = storeName;
+
+        Button unlockButton = newManager.transform.Find("UnlockManagerButton").GetComponent<Button>();
+        
+        TMP_Text unlockButtonText = unlockButton.transform.Find("UnlockManagerButtonText").GetComponent<TMP_Text>();
+        unlockButtonText.text = "Unlock $" + cost;
     }
 
     private void SetCompanyName(XmlDocument xmlDocument)
